@@ -34,3 +34,9 @@ htmlcov/
 # Project specific
 uploads/
 frontend/stego_*
+
+# Frontend build tools
+node_modules/
+dist/
+.npm
+package-lock.json
