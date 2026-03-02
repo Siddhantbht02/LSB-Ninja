@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import { Experimental_CssVarsProvider as CssVarsProvider, experimental_extendTheme as extendTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { BrowserRouter } from 'react-router-dom';
 
 // Configure a beautiful Material 3 Theme
 const theme = extendTheme({
@@ -43,7 +44,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <CssVarsProvider theme={theme}>
             <CssBaseline />
-            <App />
+            <BrowserRouter>
+                <App />
+            </BrowserRouter>
         </CssVarsProvider>
     </React.StrictMode>,
 )
