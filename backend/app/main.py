@@ -34,7 +34,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "https://lsb-ninja-8dsfii0i9-siddhantbht02s-projects.vercel.app",
-        "https://lsb-ninja.vercel.app"
+        "https://lsb-ninja.vercel.app",
+        "https://cryptstash.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
