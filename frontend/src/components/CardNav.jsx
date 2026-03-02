@@ -302,7 +302,7 @@ const CardNav = ({
                     onClick={toggleMenu}
                     type="button"
                 >
-                    <span ref={textWrapRef} className="sm-toggle-textWrap" aria-hidden="true">
+                    <span ref={textWrapRef} className="sm-toggle-textWrap" inert="true">
                         <span ref={textInnerRef} className="sm-toggle-textInner">
                             {textLines.map((l, i) => (
                                 <span className="sm-toggle-line" key={i}>
@@ -315,7 +315,7 @@ const CardNav = ({
             </div>
 
             {/* StaggeredMenu Panel Style */}
-            <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" aria-hidden={!open}>
+            <aside id="staggered-menu-panel" ref={panelRef} className="staggered-menu-panel" inert={!open ? "true" : undefined}>
                 <div className="sm-panel-inner">
                     <ul className="sm-panel-list" role="list" data-numbering={displayItemNumbering || undefined}>
                         {items && items.length > 0 ? (
