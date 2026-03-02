@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // The Vite proxy configuration correctly forwards /api requests to localhost:8000
 const api = axios.create({
-    baseURL: '/api/v1',
+    baseURL: import.meta.env.PROD ? 'https://lsb-ninja.onrender.com/api/v1' : '/api/v1',
 });
 
 export const encodeMedia = async (mode, fileOrText, secret, password) => {
