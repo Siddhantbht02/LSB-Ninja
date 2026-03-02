@@ -11,8 +11,14 @@ from app.api.routes import image, video, text, audio
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     import os
+    from app.db.database import engine, Base
     os.makedirs(settings.UPLOAD_DIR, exist_ok=True)
     os.makedirs(os.path.join(settings.UPLOAD_DIR, "encoded"), exist_ok=True)
+    
+    # Initialize DB models automatically if SQL file doesn't exist
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+        
     yield
 
 
@@ -27,7 +33,8 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://lsb-ninja-8dsfii0i9-siddhantbht02s-projects.vercel.app"
+        "https://lsb-ninja-8dsfii0i9-siddhantbht02s-projects.vercel.app",
+        "https://lsb-ninja.vercel.app"
     ],
     allow_credentials=True,
     allow_methods=["*"],
