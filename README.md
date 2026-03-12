@@ -250,7 +250,6 @@ uvicorn app.main:app --reload
 ```
 
 - API available at: `http://localhost:8000`
-- Swagger UI docs at: `http://localhost:8000/docs`
 
 ### Frontend Setup
 ```bash
